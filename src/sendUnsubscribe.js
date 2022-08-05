@@ -1,6 +1,6 @@
 import pug from 'pug'
 import juice from 'juice'
-import getTransporter from './helpers/getTransporter'
+import getTransporter from './helpers/getTransporter.js'
 
 export default async function (config, to) {
 	const subject = 'Successfully unsubscribed'
