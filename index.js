@@ -1,3 +1,3 @@
-import sendVerifyMail from './src/sendVerifyMail'
+import sendVerifyMail from './src/sendVerifyMail.js'
 
 export { sendVerifyMail }
