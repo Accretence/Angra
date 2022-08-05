@@ -1,24 +1,11 @@
 import pug from 'pug'
 import juice from 'juice'
-import nodemailer from 'nodemailer'
-
-const host = process.env.MAIL_SMTP_HOST
-const port = process.env.MAIL_SMTP_PORT
-const user = process.env.MAIL_SMTP_USER
-const pass = process.env.MAIL_SMTP_PASS
+import getTransporter from './helpers/getTransporter'
 
 export default async function (config, to, code) {
-	const subject = 'Welcome! Verify your Email to gain full access.'
+	const subject = 'Request to reset password'
 
-	let transporter = nodemailer.createTransport({
-		host,
-		port,
-		secure: true,
-		auth: {
-			user,
-			pass,
-		},
-	})
+	let transporter = await getTransporter()
 
 	let html = pug.renderFile('node_modules/angra/views/forgot.pug', {
 		config,

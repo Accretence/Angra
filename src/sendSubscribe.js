@@ -2,16 +2,15 @@ import pug from 'pug'
 import juice from 'juice'
 import getTransporter from './helpers/getTransporter'
 
-export default async function (config, to, code) {
-	const subject = 'Verify your Email'
+export default async function (config, to) {
+	const subject = 'Successfully subscribed'
 
 	let transporter = await getTransporter()
 
-	let html = pug.renderFile('node_modules/angra/views/confirmation.pug', {
+	let html = pug.renderFile('node_modules/angra/views/subscribe.pug', {
 		config,
 		title: subject,
 		name: config.meta.title,
-		code,
 	})
 
 	juice.juiceResources(html, {}, async (err, html) => {
