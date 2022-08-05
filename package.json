@@ -1,7 +1,7 @@
 {
 	"name": "angra",
 	"description": "Compose and send emails using Pug and Nodemailer.",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"author": "@accretence",
 	"license": "MIT",
 	"main": "index.js",
@@ -14,6 +14,7 @@
 		"url": "git+https://github.com/accretence/angra.git"
 	},
 	"keywords": [
+		"email",
 		"nodemailer",
 		"pug",
 		"juice"
