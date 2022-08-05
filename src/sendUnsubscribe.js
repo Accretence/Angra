@@ -2,6 +2,8 @@ import pug from 'pug'
 import juice from 'juice'
 import getTransporter from './helpers/getTransporter.js'
 
+const user = process.env.MAIL_SMTP_USER
+
 export default async function (config, to) {
 	const subject = 'Successfully unsubscribed'
 
