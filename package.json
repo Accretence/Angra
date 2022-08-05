@@ -1,7 +1,7 @@
 {
 	"name": "angra",
 	"description": "Compose and send emails.",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"author": "@accretence",
 	"license": "MIT",
 	"main": "index.js",
