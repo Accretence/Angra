@@ -1,0 +1,38 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+button {
+	border: none;
+	border-radius: 0.5vh;
+	padding: 1vh 5vw;
+	background-color: whitesmoke;
+	color: dimgray;
+}
+
+#content {
+	background-color: #11111101;
+	border: 1px lightgray solid;
+	border-radius: 0.5vh;
+	padding: 3vh 3vw;
+	margin: 1vh 1vw;
+}
+
+#social {
+	margin-bottom: 1vw;
+}
+
+a {
+	color: #49b8db;
+	text-decoration: underline;
+}
+
+.mx-1 {
+	margin: 0 0.333vw;
+}
+
+#footer {
+	margin-top: 1vh;
+	text-align: center;
+	color: dimgray;
+}
