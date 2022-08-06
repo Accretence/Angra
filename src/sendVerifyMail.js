@@ -1,12 +1,11 @@
 import pug from 'pug'
 import juice from 'juice'
-import { dirname } from 'path'
+import path, { dirname } from 'path'
 import { fileURLToPath } from 'url'
 
 import getTransporter from './helpers/getTransporter.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-console.log(__dirname)
 const from = process.env.MAIL_SMTP_USER
 
 export default async function (config, to, code) {
@@ -14,12 +13,15 @@ export default async function (config, to, code) {
 
 	let transporter = await getTransporter()
 
-	let html = pug.renderFile(__dirname + '/views/confirmation.pug', {
-		config,
-		title: subject,
-		name: config.meta.title,
-		code,
-	})
+	let html = pug.renderFile(
+		path.join(__dirname, '..', 'views', 'confirmation.pug'),
+		{
+			config,
+			title: subject,
+			name: config.meta.title,
+			code,
+		}
+	)
 
 	juice.juiceResources(html, {}, async (err, html) => {
 		await transporter.sendMail({
