@@ -1,7 +1,12 @@
 import pug from 'pug'
 import juice from 'juice'
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+
 import getTransporter from './helpers/getTransporter.js'
 
+const __dirname = dirname(fileURLToPath(import.meta.url))
+console.log(__dirname)
 const from = process.env.MAIL_SMTP_USER
 
 export default async function (config, to, code) {
