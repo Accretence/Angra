@@ -1,6 +1,7 @@
 import pug from 'pug'
 import juice from 'juice'
 import getTransporter from './helpers/getTransporter.js'
+import getPath from './helpers/getPath.js'
 
 const from = process.env.MAIL_SMTP_USER
 
@@ -9,7 +10,7 @@ export default async function (config, to) {
 
 	let transporter = await getTransporter()
 
-	let html = pug.renderFile(__dirname + '/views/unsubscribe.pug', {
+	let html = pug.renderFile(await getPath('unsubscribe.pug'), {
 		config,
 		title: subject,
 		name: config.meta.title,
