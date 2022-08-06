@@ -11,7 +11,10 @@ export default async function (config, to, code) {
 
 	let transporter = await getTransporter()
 
-	let html = pug.renderFile(await getPath('confirmation.pug'), {
+	const envelope = await getPath('confirmation.pug')
+	console.log(envelope)
+
+	let html = pug.renderFile(envelope, {
 		config,
 		title: subject,
 		name: config.meta.title,
