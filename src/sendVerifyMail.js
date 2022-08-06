@@ -11,10 +11,7 @@ export default async function (config, to, code) {
 
 	let transporter = await getTransporter()
 
-	const envelope = await getPath('confirmation.pug')
-	console.log(envelope)
-
-	let html = pug.renderFile(envelope, {
+	let html = pug.renderFile('node_modules/angra/views/confirmation.pug', {
 		config,
 		title: subject,
 		name: config.meta.title,
