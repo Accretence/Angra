@@ -5,6 +5,7 @@ import getTransporter from './helpers/getTransporter.js'
 const from = process.env.MAIL_SMTP_USER
 
 export default async function (config, to, code) {
+	console.log(__dirname)
 	const subject = 'Request to reset password'
 
 	let transporter = await getTransporter()
