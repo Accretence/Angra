@@ -9,7 +9,7 @@ export default async function (config, to, code) {
 
 	let transporter = await getTransporter()
 
-	let html = pug.renderFile('views/confirmation.pug', {
+	let html = pug.renderFile(__dirname + '/views/confirmation.pug', {
 		config,
 		title: subject,
 		name: config.meta.title,
