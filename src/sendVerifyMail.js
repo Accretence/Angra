@@ -18,7 +18,7 @@ export default async function (config, to, code) {
 	})
 }
 
-function getBody() {
+function getBody(config) {
 	return `<body>
 	<table id="backgroundTable" cellpadding="0" cellspacing="0" border="0">
 		<tr>

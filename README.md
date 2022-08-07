@@ -20,7 +20,5 @@ MAIL_SMTP_PORT =
 
 ```json
    "encoding": "^0.1.13",
-   "juice": "^8.0.0",
    "nodemailer": "^6.7.7",
-   "pug": "^3.0.2"
 ```
