@@ -14,11 +14,11 @@ export default async function (config, to, code) {
 		to,
 		subject,
 		text: subject,
-		html: getPrologue() + getBody(config) + getEpilogue(),
+		html: getPrologue(subject) + getBody(config, code) + getEpilogue(),
 	})
 }
 
-function getBody(config) {
+function getBody(config, code) {
 	return `<body>
 	<table id="backgroundTable" cellpadding="0" cellspacing="0" border="0">
 		<tr>
