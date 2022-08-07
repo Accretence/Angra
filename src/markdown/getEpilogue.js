@@ -1,5 +1,20 @@
-export default function () {
-	return `<!-- footer -->
+export default function (config) {
+	return `<p>Regards, ${config.meta.title}.</p>
+											</td>
+										</tr>
+									</table>
+								</div>
+								<!-- /content -->
+							</td>
+							<td></td>
+						</tr>
+					</table>
+					<!-- /body -->
+				</td>
+			</tr>
+		</table>
+	</body>
+	<!-- footer -->
 					<table
 						class="footer-wrap"
 						cellpadding="0"
@@ -17,7 +32,7 @@ export default function () {
 											<td align="center" valign="top">
 												<p>
 													Don't like these emails?
-													<a href="#"
+													<a href=${config.urls.unsubscribe}
 														><unsubscribe
 															>Unsubscribe</unsubscribe
 														></a

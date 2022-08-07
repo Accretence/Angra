@@ -1,7 +1,7 @@
 {
 	"name": "angra",
 	"description": "Compose and send emails using  Nodemailer.",
-	"version": "0.3.7",
+	"version": "0.3.8",
 	"author": "@accretence",
 	"license": "MIT",
 	"main": "index.js",
@@ -22,7 +22,6 @@
 	},
 	"homepage": "https://github.com/accretence/angra#readme",
 	"dependencies": {
-		"encoding": "^0.1.13",
 		"nodemailer": "^6.7.7"
 	}
 }
