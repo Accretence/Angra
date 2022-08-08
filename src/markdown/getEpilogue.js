@@ -1,5 +1,5 @@
-export default function (config) {
-	return `<p>Regards, ${config.meta.title}.</p>
+export default function (name, unsubscribe_url) {
+	return `<p>Regards, ${name}.</p>
 											</td>
 										</tr>
 									</table>
@@ -32,7 +32,7 @@ export default function (config) {
 											<td align="center" valign="top">
 												<p>
 													Don't like these emails?
-													<a href=${config.urls.unsubscribe}
+													<a href=${unsubscribe_url}
 														><unsubscribe
 															>Unsubscribe</unsubscribe
 														></a

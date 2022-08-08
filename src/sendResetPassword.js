@@ -1,21 +1,9 @@
-import getTransporter from './helpers/getTransporter.js'
-import getEpilogue from './markdown/getEpilogue.js'
-import getPrologue from './markdown/getPrologue.js'
+import sendMail from './helpers/sendMail.js'
 
-const from = process.env.MAIL_SMTP_USER
-
-export default async function (config, to, code) {
+export default async function (name, to, unsubscribe_url) {
 	const subject = 'Password successfully reset'
 
-	let transporter = await getTransporter()
-
-	await transporter.sendMail({
-		from,
-		to,
-		subject,
-		text: subject,
-		html: getPrologue(config, subject) + getBody() + getEpilogue(config),
-	})
+	await sendMail(name, to, subject, getBody(), unsubscribe_url)
 }
 
 function getBody() {

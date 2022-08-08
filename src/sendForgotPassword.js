@@ -1,32 +1,29 @@
-import getTransporter from './helpers/getTransporter.js'
-import getEpilogue from './markdown/getEpilogue.js'
-import getPrologue from './markdown/getPrologue.js'
+import sendMail from './helpers/sendMail.js'
 
-const from = process.env.MAIL_SMTP_USER
-
-export default async function (config, to, code) {
+export default async function (
+	name,
+	to,
+	reset_password_code,
+	reset_url,
+	unsubscribe_url
+) {
 	const subject = 'Request to reset password'
 
-	let transporter = await getTransporter()
-
-	await transporter.sendMail({
-		from,
+	await sendMail(
+		name,
 		to,
 		subject,
-		text: subject,
-		html:
-			getPrologue(config, subject) +
-			getBody(config, code) +
-			getEpilogue(config),
-	})
+		getBody(reset_password_code, reset_url),
+		unsubscribe_url
+	)
 }
 
-function getBody(config, code) {
+function getBody(reset_password_code, reset_url) {
 	return `
 		<p>
 			You requested to reset your password. Please enter this password reset verification code on our
-			<a href=${config.urls.reset}>password reset page.</a>
+			<a href=${reset_url}>password reset page.</a>
 		</p>
-		<h2>${code}</h2>
+		<h2>${reset_password_code}</h2>
 	`
 }

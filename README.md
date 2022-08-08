@@ -15,10 +15,3 @@ MAIL_SMTP_USER =
 MAIL_SMTP_PASS =
 MAIL_SMTP_PORT =
 ```
-
-## Dependencies
-
-```json
-   "encoding": "^0.1.13",
-   "nodemailer": "^6.7.7",
-```

@@ -1,27 +1,15 @@
-import getTransporter from './helpers/getTransporter.js'
-import getEpilogue from './markdown/getEpilogue.js'
-import getPrologue from './markdown/getPrologue.js'
+import sendMail from './helpers/sendMail.js'
 
-const from = process.env.MAIL_SMTP_USER
-
-export default async function (config, to) {
+export default async function (name, to, unsubscribe_url) {
 	const subject = 'Successfully subscribed'
 
-	let transporter = await getTransporter()
-
-	await transporter.sendMail({
-		from,
-		to,
-		subject,
-		text: subject,
-		html: getPrologue(config, subject) + getBody() + getEpilogue(config),
-	})
+	await sendMail(name, to, subject, getBody(), unsubscribe_url)
 }
 
 function getBody() {
 	return `
 		<p>
-			You successfully subscribed from our emaill list.
+			You successfully subscribed to our emaill list.
 		</p>
 	`
 }
