@@ -12,21 +12,21 @@ const verbose = process.env.MAIL_SMTP_VERBOSE
 
 export default async function () {
 	const options = {
-		host,
-		port,
-		secure: secure == 'true' ? true : false,
+		host: host ? host : null,
+		port: port ? port : null,
+		secure: secure ? (secure == 'true' ? true : false) : null,
 		auth: {
-			user,
-			pass,
+			user: user ? user : null,
+			pass: pass ? pass : null,
 		},
 		tls: {
-			rejectUnauthorized: tls == 'true' ? true : false,
+			rejectUnauthorized: tls ? (tls == 'true' ? true : false) : null,
 			ciphers: cipher ? cipher : null,
 		},
 		service: service ? service : null,
 	}
 
-	if (verbose == 'true') {
+	if (verbose && verbose == 'true') {
 		console.log({ options })
 	}
 
