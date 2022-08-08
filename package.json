@@ -1,7 +1,7 @@
 {
 	"name": "angra",
 	"description": "Compose transactional email templates and send using Nodemailer.",
-	"version": "0.4.4",
+	"version": "0.4.5",
 	"author": "@accretence",
 	"license": "MIT",
 	"main": "index.js",

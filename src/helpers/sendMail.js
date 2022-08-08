@@ -8,7 +8,7 @@ const verbose = process.env.MAIL_SMTP_VERBOSE
 export default async function (name, to, subject, body, unsubscribe_url) {
 	let transporter = await getTransporter()
 
-	const mail = transporter.sendMail({
+	const mail = await transporter.sendMail({
 		from: {
 			name,
 			address,
