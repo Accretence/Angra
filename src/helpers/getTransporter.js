@@ -30,5 +30,5 @@ export default async function () {
 		console.log({ options })
 	}
 
-	return nodemailer.createTransport()
+	return nodemailer.createTransport(options)
 }
