@@ -8,9 +8,10 @@ const secure = process.env.MAIL_SMTP_SECURE
 const tls = process.env.MAIL_SMTP_TLS_REJECT_UNAUTHORIZED
 const cipher = process.env.MAIL_SMTP_TLS_CIPHER
 const service = process.env.MAIL_SMTP_SERVICE
+const verbose = process.env.MAIL_SMTP_VERBOSE
 
 export default async function () {
-	return nodemailer.createTransport({
+	const options = {
 		host,
 		port,
 		secure: secure == 'true' ? true : false,
@@ -23,5 +24,11 @@ export default async function () {
 			ciphers: cipher ? cipher : null,
 		},
 		service: service ? service : null,
-	})
+	}
+
+	if (verbose == 'true') {
+		console.log({ options })
+	}
+
+	return nodemailer.createTransport()
 }
